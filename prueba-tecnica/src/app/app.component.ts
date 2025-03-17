@@ -27,18 +27,15 @@ export class AppComponent implements OnInit {
   // filtramos los usuarios por nombre y nacionalidad validando cual esta lleno
   get getFilteredUsers() {
     if (this.nameFilter !== '' && this.nationalitiesSelectedFilter.length === 0) {
-      console.log('test');
       return this.allUsers.filter(user => {
         const nameComplete = user.name.first.toLowerCase() + user.name.last.toLowerCase();
         return nameComplete.includes(this.nameFilter.toLowerCase())
       });
     }
     if (this.nameFilter === '' && this.nationalitiesSelectedFilter.length !== 0) {
-      console.log('test2');
       return this.allUsers.filter(user => this.nationalitiesSelectedFilter.includes(user.nat));
     }
     if (this.nameFilter !== '' && this.nationalitiesSelectedFilter.length !== 0) {
-      console.log('test2');
       return this.allUsers.filter(user => {
         const nameComplete = user.name.first + user.name.last;
         return this.nationalitiesSelectedFilter.includes(user.nat) && nameComplete.includes(this.nameFilter)

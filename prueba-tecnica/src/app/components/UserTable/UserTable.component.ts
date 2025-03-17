@@ -22,7 +22,6 @@ export class UserTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor(private apiService: ApiService) { }
   ngAfterViewInit() {
-    console.log(this.dataSource)
     this.dataSource.paginator = this.paginator;
   }
   
