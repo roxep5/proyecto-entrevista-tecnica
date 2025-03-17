@@ -1,0 +1,8 @@
+<mat-form-field class="full-width">
+  <mat-label>Nacionalidades</mat-label>
+  <mat-select [formControl]="nationalitys" multiple (selectionChange)="updateSelection()">
+    @for (topping of nationality; track topping) {
+      <mat-option [value]="topping">{{topping}}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
