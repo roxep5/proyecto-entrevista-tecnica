@@ -7,4 +7,28 @@ main {
   display: flex;
   justify-content: center;
   padding: 1rem;
+  flex-direction: column;
+}
+.hidden{
+    display: none;
+}
+
+
+/* El mat-spinner debe estar absolutamente posicionado y centrado */
+.loading-spinner {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    /* Aseguramos que esté por encima del contenido */
+    display: block;
+}
+
+.loading-spinner-div {
+    position: absolute;
+    background-color: rgba(225, 225, 225, 0.482);
+    width: 98%;
+    height: 100%;
+    z-index: 9;
 }

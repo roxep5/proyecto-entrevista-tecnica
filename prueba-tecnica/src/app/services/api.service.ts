@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
@@ -13,13 +13,11 @@ export class ApiService {
 
   // Método para obtener datos de la API
   getUsers(): Observable<any> {
-    return this.http.get<any>(this.apiUrl).pipe(
-      map((response) => response),
-      catchError((error) => {
-        console.error('Error al obtener datos:', error);
-        return throwError(() => new Error('Error en la API'));
-      })
-    );
+    return this.http.get<any>(this.apiUrl);
   }
-
+  getUsersByNation(nation: string[]): Observable<any> {
+    let params = new HttpParams().set('nat', nation.join(","));  // Agregamos el parámetro 'nation'
+    
+    return this.http.get<any>(this.apiUrl,{params} );
+  }
 }

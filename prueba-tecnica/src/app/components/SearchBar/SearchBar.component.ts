@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-SearchBar',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SearchBarComponent implements OnInit {
   @Output() nameOut = new EventEmitter<string>();
-  constructor() { }
+  constructor(public loadingService: LoadingService) { }
 
   ngOnInit() {
   }
